@@ -4,3 +4,8 @@ export async function loadPokemon() {
 
   return results
 }
+
+export async function getPokemonData(url: string) {
+  const resp = await fetch(url)
+  return await resp.json()
+}
