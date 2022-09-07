@@ -1,20 +1,29 @@
 <script setup lang="ts">
 import {onBeforeMount, ref} from "vue";
-import {getPokemonData, loadPokemon} from "../services/api";
+import {loadPokemon} from "../services/api";
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue'
 import {Bars3Icon, XMarkIcon} from '@heroicons/vue/24/outline'
 import Pokemon from "./Pokemon.vue";
 
-const pokemonList = ref()
+const pokemonList = ref([])
+const pokeCount = ref(0)
+const offset = ref<number>(20)
 
-async function getPoke(url) {
-  const r = await getPokemonData(url)
-  console.log(r)
-  return r
+async function getNextPokemonPage(offset: number = 20) {
+  const { results, count } = await loadPokemon(offset)
+  pokemonList.value = [...pokemonList.value, ...results]
+  pokeCount.value = count
 }
 
 onBeforeMount(async () => {
-  pokemonList.value = await loadPokemon()
+  await getNextPokemonPage()
+
+  do {
+    await getNextPokemonPage(offset.value)
+    offset.value += 20
+
+    setTimeout(() => {}, 200)
+  } while (offset.value < pokeCount.value)
 })
 </script>
 
@@ -80,7 +89,7 @@ onBeforeMount(async () => {
           <br>
 
           <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            <pokemon v-for="pokemon in pokemonList" :key="pokemon.name" :url="pokemon.url"></pokemon>
+            <pokemon v-for="pokemon in pokemonList" :key="pokemon.url" :url="pokemon.url"></pokemon>
           </div>
         </div>
       </div>
