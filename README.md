@@ -1,7 +1,38 @@
-# Vue 3 + Vite
+# PokeDex
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Esse projeto é uma simples implementação de uma <a href="https://felipe-pokedex.herokuapp.com//" target="__blank">Pokedex</a>.
 
-## Recommended IDE Setup
+## Instalação
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+1) Clone o projeto
+
+```sh
+$ git clone git@github.com:felipe-dna/pokedex.git
+```
+
+2) Neste projeto usamos yarn e node versão 16 (nvm), para isso, use:
+
+```sh
+$ nvm use
+```
+
+3) Instale as dependências
+
+```sh
+$ yarn install
+```
+
+4) Agora você pode executar o projeto
+
+```sh
+$ yarn dev
+```
+
+## Mantenedores
+
+<div align="center">
+<img src="https://avatars1.githubusercontent.com/u/33638130?s=460&u=b32819fd3bbc3fcbff777e1f7a90ce68cd2b63a0&v=4" width="10%" height="10%" style="border-radius: 50%;"  alt="">
+<br/>
+
+[@felipe-dna](mailto:felipedavidamador@gmailcom)
+</div>
