@@ -1,5 +1,7 @@
 # PokeDex
 
+PS: esse projeto foi feito para a disciplina de PDS do curso de Análise e Desenvolvimento de Sistemas do IFPB Campus Cajazeiras
+
 Esse projeto é uma simples implementação de uma <a href="https://felipe-pokedex.herokuapp.com//" target="__blank">Pokedex</a>.
 
 ## Instalação
